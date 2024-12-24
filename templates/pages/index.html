@@ -15,7 +15,7 @@
               </p>
               <div class="search">
                 {% comment %} correct later {% endcomment %}
-                <form action="search.html">
+                <form action={% url 'search' %}>
                   <!-- Form Row 1 -->
                   <div class="form-row">
                     <div class="col-md-4 mb-3">
@@ -44,6 +44,9 @@
                         <option selected="true" disabled="disabled">
                           District (All)
                         </option>
+                        {% for key, value in district_choices.items %}
+                        <option value={{key}}>{{value}}</option>
+                        {% endfor %}
                         <option value="IL">Islands</option>
                         <option value="KT">Kwai Tsing</option>
                         <option value="NR">North</option>
@@ -73,6 +76,9 @@
                         <option selected="true" disabled="disabled">
                           Bedrooms (All)
                         </option>
+                        {% for key, value in bedroom_choices.items %}
+                        <option value={{key}}>{{value}}</option>
+                        {% endfor %}
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -90,6 +96,9 @@
                         <option selected="true" disabled="disabled">
                           Max Price (Any)
                         </option>
+                        {% for key, value in price_choices.items %}
+                        <option value={{key}}>{{value}}</option>
+                        {% endfor %}
                         <option value="1000000">$1,000,000</option>
                         <option value="2000000">$2,000,000</option>
                         <option value="3000000">$3,000,000</option>
